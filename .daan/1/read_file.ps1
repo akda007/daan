@@ -1,7 +1,0 @@
-function ReadHEAD {
-    
-}
-
-function ReadHEAD {
-    
-}
