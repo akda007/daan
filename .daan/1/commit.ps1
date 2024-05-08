@@ -13,14 +13,6 @@ function SetLast {
     Set-Content -Path $last -Value $number
 }
 
-function SetHead {
-    param (
-        $number
-    )
-    
-    Set-Content -Path ".\.daan\HEAD" -Value $number
-}
-
 function Commit {
     if (!(Test-Path -Path ".\.daan")) {
         return
@@ -54,5 +46,4 @@ function Commit {
     }
 
     SetLast -number $new_commit
-    SetHead -number $new_commit
 }
