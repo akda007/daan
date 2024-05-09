@@ -55,4 +55,6 @@ function Commit {
 
     SetLast -number $new_commit
     SetHead -number $new_commit
+
+    Set-Content -Path .daan/ADD -Value ""
 }
