@@ -11,7 +11,7 @@ function checkout {
         $code
     )
 
-    $last_commit = Get-Content
+    # $last_commit = Get-Content
 
     if ($null -eq $code) {
         Write-Error "Invalid commit code"

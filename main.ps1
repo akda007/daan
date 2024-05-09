@@ -2,6 +2,7 @@
 . ..\checkout.ps1
 . ..\commit.ps1
 . ..\init.ps1
+. ..\log.ps1
 
 
 function Daan {
@@ -18,6 +19,7 @@ function Daan {
         "checkout" { Checkout $arg }
         "commit" { Commit }
         "init" { Init }
+        "log" {log}
         Default {
             "Daan commands: "
             "   daan log - checks commits"
