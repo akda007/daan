@@ -1,8 +1,10 @@
 $last = Join-Path -Path ".\.daan" -ChildPath "LAST"
 function getAddList {
     $file = ".\.daan\ADD"
-    
-    return [string[]](Get-Content -Path $file)
+    $content = [string[]](Get-Content -Path $file)
+
+    $content = $content | Where-Object { $null -ne $_ -and "" -ne $_ }
+    return $content
 }
 
 function SetLast {
@@ -26,8 +28,6 @@ function Commit {
         return
     }
 
-    
-
     if (!(Test-Path -Path $last)) {
         return
     }
@@ -45,7 +45,9 @@ function Commit {
 
     New-Item -Path $new_commit_path -ItemType Directory
 
-    foreach ($file in getAddList) {
+    $add_list = getAddList
+
+    foreach ($file in $add_list) {
         if (!(Test-Path -Path $file)) {
             continue
         }
